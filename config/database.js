@@ -1,5 +1,5 @@
 if(process.env.NODE_ENV === 'production'){
-    module.exports = {mongoURI: 'mongodb+srv://bharath:bharath@cluster0-kmw5c.mongodb.net/test?retryWrites=true'}
+    module.exports = {mongoURI: 'mongodb://bharath:bharath123@ds261155.mlab.com:61155/tsinteract'}
   } else {
     module.exports = {mongoURI: 'mongodb://localhost/vidjot-dev'}
   }
