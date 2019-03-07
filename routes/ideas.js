@@ -44,6 +44,10 @@ router.get('/anon', ensureAuthenticated, (req, res) => {
   res.render('ideas/anon');
 });
 
+router.post('/ideas', (req,res) => {
+  req.flash('success_msg', 'Feedback Submitted');
+  res.redirect('/ideas');
+})
 
 
 
