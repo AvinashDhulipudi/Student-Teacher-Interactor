@@ -20,7 +20,7 @@ router.get('/register', (req, res) => {
 //Login form POST
 router.post('/login', (req,res,next)=> {
   passport.authenticate('local', {
-    successRedirect: '/ideas',
+    successRedirect: '/',
     failureRedirect: '/users/login',
     failureFlash: true 
 
@@ -83,6 +83,7 @@ router.post('/register', (req, res) => {
       });  
   }
 });
+
 
 //Logout User
 router.get('/logout', (req,res) => {

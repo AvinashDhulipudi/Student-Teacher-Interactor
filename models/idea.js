@@ -12,10 +12,24 @@ const IdeaSchema = new Schema({
         type: String,
         reuired: true 
     },
-    user: {
-        type: String,
-        required: true
-    },
+    comments: [{
+        commentBody: {
+          type: String,
+          required: true
+        },
+        commentDate:{
+          type: Date,
+          default: Date.now
+        },
+        commentUser:{
+          type: Schema.Types.ObjectId,
+          ref:'users'
+        }
+      }],
+      user:{
+        type: Schema.Types.ObjectId,
+        ref:'users'
+      },
     date: {
         type: Date,
         default: Date.now 

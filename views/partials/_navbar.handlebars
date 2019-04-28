@@ -21,6 +21,7 @@
           <div class="dropdown-menu">
             <a href="/ideas" class="dropdown-item">Announcements</a>
             <a href="/ideas/add" class="dropdown-item">Add Announcements</a>
+            <a class="dropdown-item" href="/ideas/viewprofile/{{this.user.id}}">View Profile</a>
           </div>
         </li>
         <li class="nav-item">
@@ -32,7 +33,9 @@
          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Announcements</a>
           <div class="dropdown-menu">
             <a href="/ideas" class="dropdown-item">Announcements</a>
-            <a href="/ideas/anon" class="dropdown-item">Give Feedback</a>
+            <a href="/ideas/addfeedback" class="dropdown-item">Give Feedback</a>
+            <a href="/ideas/enroll" class="dropdown-item">Enroll Classes</a>
+            <a class="dropdown-item" href="/ideas/viewprofile/{{this.user.id}}">View Profile</a>
           </div>
         </li>
         <li class="nav-item">
@@ -40,12 +43,25 @@
         </li> 
           
           {{else}}
-           <li class="nav-item">
-          <a href="/users/login" class="nav-link">Login</a>
+            {{#ifeq this.user.identity "Principal"}}
+              <li class="nav-item dropdown">
+         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Feedbacks</a>
+          <div class="dropdown-menu">
+            <a href="/ideas/feedback" class="dropdown-item">View Feedback</a>
+            <a class="dropdown-item" href="/ideas/viewprofile/{{this.user.id}}">View Profile</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a href="/users/register" class="nav-link">Register</a>
-        </li>
+          <a href="/users/logout" class="nav-link">Logout</a>
+        </li> 
+            {{else}}
+              <li class="nav-item">
+              <a href="/users/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/users/register" class="nav-link">Register</a>
+            </li>
+            {{/ifeq}}
           {{/ifeq }}
         {{/ifeq}}
       </ul>
